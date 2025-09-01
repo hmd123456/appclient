@@ -36,3 +36,46 @@
     transform: rotate(360deg);
   }
 }
+
+/* Add to App.css or ProfileSummary.css */
+.profile-summary__container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 32px 24px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.profile-summary__title {
+  text-align: center;
+  color: #1976d2;
+  margin-bottom: 24px;
+}
+
+.profile-summary__section {
+  margin-bottom: 24px;
+}
+
+.profile-summary__section h3 {
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.profile-summary__section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.profile-summary__section li {
+  margin-bottom: 6px;
+  font-size: 1rem;
+}
+
+.profile-summary__loading {
+  text-align: center;
+  margin-top: 60px;
+  font-size: 1.2rem;
+  color: #888;
+}

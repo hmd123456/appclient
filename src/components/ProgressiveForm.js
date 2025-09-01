@@ -4,6 +4,7 @@ import EducationForm from './EducationForm';
 import FileUploadForm from './FileUploadForm';
 import { db } from '../firebase';
 import { doc, setDoc, getDoc } from 'firebase/firestore';
+import { useNavigate } from 'react-router-dom';
 
 function ProgressiveForm({ user }) {
   const [step, setStep] = useState(0);
@@ -11,6 +12,7 @@ function ProgressiveForm({ user }) {
   const [education, setEducation] = useState({});
   const [files, setFiles] = useState({});
   const [status, setStatus] = useState('');
+  const navigate = useNavigate();
 
   // Fetch profile data on mount
   useEffect(() => {
@@ -53,7 +55,6 @@ function ProgressiveForm({ user }) {
 
   const handleFilesSubmit = async (data) => {
     setStatus('Uploading...');
-    // For demo: just save file names, not actual files
     if (user?.uid) {
       const docRef = doc(db, 'profiles', user.uid);
       await setDoc(docRef, { files: Object.keys(data).reduce((acc, key) => {
@@ -63,6 +64,9 @@ function ProgressiveForm({ user }) {
     }
     setFiles(data);
     setStatus('Profile completed!');
+    setTimeout(() => {
+      navigate('/profile');
+    }, 1000); // Redirect after 1 second
   };
 
   if (step === 0) {
